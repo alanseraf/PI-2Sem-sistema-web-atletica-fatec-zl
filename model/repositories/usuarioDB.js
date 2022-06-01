@@ -38,29 +38,30 @@ async function getCursoUsuario(id){
     else return null;
 }
 
-
-
-
-module.exports = {getUsuarioId, login, getCursoUsuarioId, getCursoUsuario};
-
-/*
-async function selectUsuario(){
+async function getRelatorioMembros(id){
     const conn = await usuarioDB.connect();
-    const [rows] = await conn.query('SELECT * FROM usuario;');
+    const [rows] = await conn.query('SELECT * FROM membro;');
     return rows;
 }
 
-async function deleteUsuario(id){
+async function getRelatorioCursos(id){
     const conn = await usuarioDB.connect();
-    const sql = 'DELETE FROM usuario where id=?;';
-    return await conn.query(sql, [id]);
+    const [rows] = await conn.query('SELECT * FROM curso;');
+    return rows;
 }
 
-async function updateUsuario(usuario){
+async function getRelatorioEventos(id){
     const conn = await usuarioDB.connect();
-    const sql = 'UPDATE usuario SET nome=?, senha=? where id=?;';
-    const values = [usuario.nome, usuario.senha, usuario.id];
-    return await conn.query(sql, values);
+    const [rows] = await conn.query('SELECT * FROM eventos;');
+    return rows;
 }
 
-*/
+async function getRelatorioModalidades(id){
+    const conn = await usuarioDB.connect();
+    const [rows] = await conn.query('SELECT * FROM modalidade_esportiva;');
+    return rows;
+}
+
+
+module.exports = {getUsuarioId, login, getCursoUsuarioId, getCursoUsuario, getRelatorioMembros, getRelatorioCursos, getRelatorioEventos, getRelatorioModalidades};
+

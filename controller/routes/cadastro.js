@@ -31,10 +31,10 @@ module.exports = function (app){
         } catch (error){
             res.render('forms/form-2cadastro', { title: 'Cadastro', mensagem: "Erro no cadastro"})
         }
-    })
+    });
     
     app.get('/cadastro--salvar', function (req, res){
         res.render('forms/sucesso-cadastro', {mensagem: 'cadastrado'});
-    })
+    });
 
 }

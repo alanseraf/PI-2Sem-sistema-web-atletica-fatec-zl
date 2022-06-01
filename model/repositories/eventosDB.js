@@ -10,4 +10,3 @@ async function insertInscricaoEvento(eventos){
 
 module.exports = { insertInscricaoEvento };
 
-//INSERT INTO membro_evento_teste(id, nome, cpf, data_realizacao, horario, localidade) VALUES (1,"","","2022-01-01","","");

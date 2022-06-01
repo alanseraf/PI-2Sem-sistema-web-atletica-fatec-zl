@@ -67,18 +67,20 @@
                         </tr>
                     </thead>
                     <tbody> 
-                        <tr>
-                            <td>Membro</td>
-                            <td>Alan Nunes Serafim</td>
-                            <td>398.292.378-69</td>
-                            <td>alan@gmail.com</td>
-                            <td>(11) 97081-0316</td>
-                            <td>14/03/1991</td>
-                            <td>Desenvolvimento de Software Multiplataforma</td>
-                            <td>Manhã</td>
-                            <td>2º Semestre</td>
-                            <td><input type="button" value="editar"></td>
-                        </tr>
+                        <% for(var i = 0; i < membros.length; i++) { %>
+                            <tr>
+                                <td><%= membros[i].perfil %></td>
+                                <td><%= membros[i].nome %></td>
+                                <td><%= membros[i].cpf %></td>     
+                                <td><%= membros[i].email %></td>
+                                <td><%= membros[i].telefone %></td>
+                                <td><%= membros[i].data_nascimento.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %></td>  
+                                <td>CURSO</td>
+                                <td>TURNO</td>  
+                                <td>TURMA</td>                                                        
+                                <td><input type="button" value="editar"></td>
+                            </tr>
+                        <% } %>
                     </tbody>
                 </table>
             </div>
@@ -93,17 +95,21 @@
                             <th>Dia dos treinos</th>
                             <th>Horário</th>
                             <th>Editar dados</th>
+                            <th>Atletas</th>
 
                         </tr>
                     </thead>
                     <tbody> 
-                        <tr>
-                            <td>Futsal</td>
-                            <td>Misto</td>
-                            <td>Segunda-Feira / Terça-feira</td>
-                            <td>2ª das 14:00 as 16:00 / 4ª das 13:00 as 15:00</td>
+                        <% modalidades.forEach(function(modalidade){ %>   
+                        <tr>                            
+                            <td><%= modalidade.nome %></td>
+                            <td><%= modalidade.genero %></td>
+                            <td><%= modalidade.dia_da_semana %></td>
+                            <td><%= modalidade.horario %></td>
                             <td><input type="button" value="editar"></td>
+                            <td><input type="button" value="exibir"></td>
                         </tr>
+                        <% }) %>
                     </tbody>
                 </table>
             </div>
@@ -117,22 +123,50 @@
                             <th>Descrição</th>
                             <th>Data</th>
                             <th>Horário de início</th>
-                            <th>Horário de termino</th>
                             <th>Local</th>
+                            <th>Orcamento</th>
                             <th>Editar dados</th>
+                            <th>Inscritos</th>
 
                         </tr>
                     </thead>
                     <tbody> 
+                        <% eventos.forEach(function(evento){ %> 
+                            <tr>
+                                <td><%= evento.nome %></td>
+                                <td><%= evento.descricao %></td>
+                                <td><%= evento.data_realizacao.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %></td>
+                                <td><%= evento.horario_inicio %></td>
+                                <td><%= evento.localidade %></td>
+                                <td><%= evento.orcamento %></td>
+                                <td><input type="button" value="editar"></td>
+                                <td><input type="button" value="exibir"></td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="eventos">
+                <p class="descricao">CURSOS CADASTRADOS</p>
+                <table class="tabela"> 
+                    <thead> 
                         <tr>
-                            <td>INTERFATEC</td>
-                            <td>A maior festa da sua vida.</td>
-                            <td>10/10/2022</td>
-                            <td>13:00 horas</td>
-                            <td>00:00 horas</td>
-                            <td>Rua São joão, Nº 1000, Itaquera - SP, CEP: 08555-100</td>
-                            <td><input type="button" value="editar"></td>
+                            <th>Curso</th>
+                            <th>Semestres</th>
+                            <th>Turno</th>
+                            <th>Editar dados</th>
                         </tr>
+                    </thead>
+                    <tbody> 
+                        <% cursos.forEach(function(curso){ %> 
+                            <tr>
+                                <td><%= curso.nome %></td>
+                                <td><%= curso.semestres %></td>
+                                <td><%= curso.turno %></td>
+                                <td><input type="button" value="editar"></td>
+                            </tr>
+                        <% }) %>
                     </tbody>
                 </table>
             </div>

@@ -67,19 +67,6 @@ create table membro_modalidade(
     foreign key (modalidade) references modalidade_esportiva(id_modalidade)
 );
 
-create table membro_modalidade_teste(
-    id int primary key, 
-    aluno varchar(255),
-    nome varchar(255), 
-    genero varchar(255), 
-    tipo varchar(255),
-    dia_da_semana varchar(255),
-    horario varchar(255), 
-    equipamento varchar(255) 
-);
-
-
-
 create table inscricao (
 	id_inscricao int auto_increment primary key, 
     data_inicio date not null,
@@ -90,10 +77,10 @@ create table inscricao (
 
 create table eventos (
 	id_evento int auto_increment primary key,
-    nome varchar(255) not null, 
+    nome varchar(255) not null,
+    descricao varchar(500), 
     data_realizacao date not null, 
     horario_inicio varchar(255) not null, 
-    horario_fim varchar(255) not null, 
     localidade varchar(255) not null, 
     orcamento double, 
     inscricao int, 
@@ -136,8 +123,26 @@ create table cliente_inscricao(
 
 );
 
+create table membro_modalidade_teste(
+    id int primary key auto_increment, 
+    aluno varchar(255),
+    nome varchar(255), 
+    genero varchar(255), 
+    tipo varchar(255),
+    dia_da_semana varchar(255),
+    horario varchar(255), 
+    equipamento varchar(255) 
+);
 
-insert into membro (cpf, nome, email, senha, perfil, telefone, data_nascimento, curso, turma) values ("999.999.999-99", "admin", "admin@admin.com", "8cb2237d0679ca88db6464eac60da96345513964", "adm", "99999-9999", "2020-05-28", 1, "2022");
+
+create table membro_evento_teste(
+    id int auto_increment primary key,
+    nome varchar(255), 
+    cpf varchar (255), 
+    data_realizacao date, 
+    horario varchar(255) ,  
+    localidade varchar(255) 
+);
 
 ##Inserindo cursos oferecidos pela fatec
 
@@ -159,34 +164,17 @@ insert into modalidade_esportiva (nome, genero, tipo, dia_da_semana, horario, eq
 insert into modalidade_esportiva (nome, genero, tipo, dia_da_semana, horario, equipamento) values ("Futsal", "Feminino", "Coletivo", "Segunda-feira / Quinta-feira", "14:00 as 16:00", "Calçado");
 insert into modalidade_esportiva (nome, genero, tipo, dia_da_semana, horario, equipamento) values ("Volei", "Misto", "Coletivo", "Segunda-feira / Quinta-feira", "17:00 as 18:00", "Calçado");
 
-##Inserindo modalidades 
+##Inserindo eventos 
 
-insert into eventos (nome, data_realizacao, horario_inicio, horario_fim, localidade, orcamento) values ("INTERFATEC","2020-12-12","13:00", "23:59", "Rua São joão, Nº 1000, Itaquera - SP, CEP: 08555-100", 8.000);
-insert into eventos (nome, data_realizacao, horario_inicio, horario_fim, localidade, orcamento) values ("FATEC RUN","2020-10-10","09:00", "12:00", "Avenida Dom Pedro, Nº 12, Itaquera - SP, CEP: 08555-100", 8.000);
-insert into eventos (nome, data_realizacao, horario_inicio, horario_fim, localidade, orcamento) values ("GEEK DAY","2020-06-01","08:00", "22:00", "Avenida Águia de Haia, 2983. Cidade A.E. Carvalho, CEP 03694-000, São Paulo-SP.", 8.000);
+insert into eventos (nome, data_realizacao, horario_inicio, localidade, orcamento, descricao) values ("INTERFATEC","2020-12-12","13:00", "Rua São joão, Nº 1000, Itaquera - SP, CEP: 08555-100", 8.000, "A maior festa da sua vida");
+insert into eventos (nome, data_realizacao, horario_inicio, localidade, orcamento, descricao) values ("FATEC RUN","2020-10-10","09:00", "Avenida Dom Pedro, Nº 12, Itaquera - SP, CEP: 08555-100", 8.000, "A maior festa da sua vida");
+insert into eventos (nome, data_realizacao, horario_inicio, localidade, orcamento, descricao) values ("GEEK DAY","2020-06-01","08:00", "Avenida Águia de Haia, 2983. Cidade A.E. Carvalho, CEP 03694-000, São Paulo-SP.", 8.000, "A maior festa da sua vida");
 
+#Inciando tabelas
 
-create table membro_modalidade_teste(
-    id int primary key auto_increment, 
-    aluno varchar(255),
-    nome varchar(255), 
-    genero varchar(255), 
-    tipo varchar(255),
-    dia_da_semana varchar(255),
-    horario varchar(255), 
-    equipamento varchar(255) 
-);
+insert into membro (cpf, nome, email, senha, perfil, telefone, data_nascimento, curso, turma) values ("999.999.999-99", "admin", "admin@admin.com", "8cb2237d0679ca88db6464eac60da96345513964", "adm", "99999-9999", "2020-05-28", 1, "2022");
+insert into membro (cpf, nome, email, senha, perfil, telefone, data_nascimento, curso, turma) values ("999.999.999-99", "aluno", "aluno@aluno.com", "8cb2237d0679ca88db6464eac60da96345513964", "membro", "99999-9999", "2020-05-28", 1, "2022");
 
 INSERT INTO membro_modalidade_teste(id, aluno, nome, genero, tipo, dia_da_semana, horario, equipamento) VALUES (1,"","","","","","","");
-
-
-create table membro_evento_teste(
-    id int auto_increment primary key,
-    nome varchar(255), 
-    cpf varchar (255), 
-    data_realizacao date, 
-    horario varchar(255) ,  
-    localidade varchar(255) 
-);
 
 INSERT INTO membro_evento_teste(id, nome, cpf, data_realizacao, horario, localidade) VALUES (1,"","","2022-01-01","","");
