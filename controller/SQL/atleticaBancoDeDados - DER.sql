@@ -10,16 +10,6 @@ create table campus (
     telefones varchar(255) not null
 );
 
-/*
-create table curso (
-	id_curso int auto_increment primary key,
-	nome varchar(255) not null,
-	turma varchar(255) not null,
-	turno varchar(255) not null,
-	inicio date not null,
-	termino date not null
-);
-*/
 
 create table curso (
 	id int auto_increment primary key,
@@ -141,7 +131,8 @@ create table membro_evento_teste(
     cpf varchar (255), 
     data_realizacao date, 
     horario varchar(255) ,  
-    localidade varchar(255) 
+    localidade varchar(255),
+    id_membro int 
 );
 
 ##Inserindo cursos oferecidos pela fatec

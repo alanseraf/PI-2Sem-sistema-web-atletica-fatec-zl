@@ -11,7 +11,8 @@ module.exports = function (app){
                     const usuarioLogado = await usuarioBanco.getUsuarioId(usuarioID);
                     const cursoDoUsuarioId = await usuarioBanco.getCursoUsuarioId(usuarioID);
                     const cursoDoUsuario = await usuarioBanco.getCursoUsuario(cursoDoUsuarioId.curso);
-                    res.render('usuario/usuario', {usuarioLogado, cursoDoUsuario});
+                    const eventosDoUsuario = await usuarioBanco.getEventoUsuario(usuarioID)
+                    res.render('usuario/usuario', {usuarioLogado, cursoDoUsuario, eventosDoUsuario});
                 } else {
                     const usuarioID = req.user.id;
                     const usuarioLogado = await usuarioBanco.getUsuarioId(usuarioID);

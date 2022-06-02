@@ -26,7 +26,7 @@ module.exports = function (app){
                            senha: seguranca.ocultarsenha(req.body.senha)                        
                         }
             usuarioBanco.insertUsuario(usuario);
-            res.render('forms/sucesso-cadastro', {mensagem: 'cadastrado', cursos});
+            res.render('forms/sucesso-cadastro', {mensagem: 'Cadastro', cursos});
             //corrigir erro do css
         } catch (error){
             res.render('forms/form-2cadastro', { title: 'Cadastro', mensagem: "Erro no cadastro"})

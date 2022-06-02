@@ -30,12 +30,13 @@
                             <div class="form__campos">
                                 <label for="nome">Evento</label>
                                 <select name="nome">
-                                    <option value="INTERFATEC">INTERFATEC</option>
-                                    <option value="FATEC RUN">FATEC RUN</option>
-                                    <option value="GEEK DAY">GEEK DAY</option>         
+                                        <% eventos.forEach(function(evento){ %>
+                                            <option value=" <%= evento.nome %> "> <%= evento.nome %> </option>    
+                                        <% }) %>
                                 </select>
                                 <label for="cpf">CPF</label>
-                                <input type="number" name="cpf" required placeholder="999.999.999-99">
+                                <input type="text" name="cpf" value=" <%= usuarioLogado.cpf %> " disabled>
+                                <input name="id" type="hidden" value=" <%= usuarioLogado.id %> ">
                                 <label for="data">Data</label>
                                 <select name="data">
                                     <option value="2022-10-10">10/10/2022</option>

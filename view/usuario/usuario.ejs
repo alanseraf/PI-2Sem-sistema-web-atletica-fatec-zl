@@ -114,19 +114,19 @@
                             <th>Evento</th>
                             <th>Data</th>
                             <th>Horário de início</th>
-                            <th>Horário de termino</th>
                             <th>Local</th>
 
                         </tr>
                     </thead>
                     <tbody> 
-                        <tr>
-                            <td>INTERFATEC</td>
-                            <td>10/10/2022</td>
-                            <td>13:00 horas</td>
-                            <td>00:00 horas</td>
-                            <td>Rua São joão, Nº 1000, Itaquera - SP, CEP: 08555-100</td>
-                        </tr>
+                        <% eventosDoUsuario.forEach(function(eventoUsuario){ %> 
+                            <tr>
+                                <td><%= eventoUsuario.nome %></td>
+                                <td><%= eventoUsuario.data_realizacao.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %></td>
+                                <td><%= eventoUsuario.horario %></td>
+                                <td><%= eventoUsuario.localidade %></td>
+                            </tr>
+                        <% }) %>      
                     </tbody>
                 </table>
             </div>

@@ -20,7 +20,7 @@ module.exports = function (app){
                 equipamento: req.body.equipamento
         }
         usuarioBanco.insertModalidade(modalidades);
-        res.render('forms/sucesso-cadastro', {mensagem: 'inscrito'});
+        res.render('forms/sucesso-cadastro', {mensagem: 'Inscrição de Atleta'});
         } catch (error){
             res.render('forms/form-4inscricaomodalidades', { title: 'Inscrição-Modalidades', mensagem: "Erro na inscrição"})
         }
