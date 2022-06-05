@@ -17,8 +17,11 @@
         <link rel="stylesheet" href="assets\css\rodape-icones\iconesRedesSocias-icone.css">
         <link rel="stylesheet" href="assets\css\rodape-desenvolvimento\desenvolvimento-descricao.css">
         <link rel="stylesheet" href="assets\css\rodape-desenvolvimento\desenvolvimento.css">
-        <!--CSS: Rodape-->    
-        <link rel="stylesheet" href="assets\css\usuario\barra.css">
+        <!--CSS: Usuário ADM-->    
+        <link rel="stylesheet" href="assets\css\usuario\usuario.css">
+        <link rel="stylesheet" href="assets\css\usuario\usuario-barra.css">
+        <link rel="stylesheet" href="assets\css\usuario\usuario-menu.css">
+        <link rel="stylesheet" href="assets\css\usuario\usuario-adm.css">
         <%- include('../partials/head-js'); %>
         <!--Titulo da Página-->     
     <title>Usuário</title>
@@ -50,128 +53,130 @@
 
             <div class="membros">
                 <p class="descricao">RELATÓRIO DE USUÁRIOS</p>
-                <table class="tabela"> 
-                    <thead> 
-                        <tr>
-                            <th>Perfil</th>
-                            <th>Nome</th>
-                            <th>CPF</th>
-                            <th>email</th>
-                            <th>telefone</th>
-                            <th>Data de Nascimento</th>
-                            <th>Curso</th>
-                            <th>Turno</th>
-                            <th>Turma</th>
-                            <th>Editar dados</th>
-
-                        </tr>
-                    </thead>
-                    <tbody> 
-                        <% for(var i = 0; i < membros.length; i++) { %>
+                <div class="overflow">
+                    <table class="tabela"> 
+                        <thead> 
                             <tr>
-                                <td><%= membros[i].perfil %></td>
-                                <td><%= membros[i].nome %></td>
-                                <td><%= membros[i].cpf %></td>     
-                                <td><%= membros[i].email %></td>
-                                <td><%= membros[i].telefone %></td>
-                                <td><%= membros[i].data_nascimento.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %></td>  
-                                <td>CURSO</td>
-                                <td>TURNO</td>  
-                                <td>TURMA</td>                                                        
-                                <td><input type="button" value="editar"></td>
+                                <th>Perfil</th>
+                                <th>Nome</th>
+                                <th>CPF</th>
+                                <th>email</th>
+                                <th>telefone</th>
+                                <th>Data de Nascimento</th>
+                                <th>Curso</th>
+                                <th>Turno</th>
+                                <th>Turma</th>
+                                <th>Editar dados</th>
                             </tr>
-                        <% } %>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody> 
+                            <% for(var i = 0; i < membros.length; i++) { %>
+                                <tr>
+                                    <td><%= membros[i].perfil %></td>
+                                    <td><%= membros[i].nome %></td>
+                                    <td><%= membros[i].cpf %></td>     
+                                    <td><%= membros[i].email %></td>
+                                    <td><%= membros[i].telefone %></td>
+                                    <td><%= membros[i].data_nascimento.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %></td>  
+                                    <td>CURSO</td>
+                                    <td>TURNO</td>  
+                                    <td>TURMA</td>                                                        
+                                    <td><input class="botao__editar" type="button" value="editar"></td>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
             <div class="modalidades">
                 <p class="descricao">MODALIDADES ESPORTIVAS</p>
-                <table class="tabela"> 
-                    <thead> 
-                        <tr>
-                            <th>Modalidade</th>
-                            <th>Genero</th>
-                            <th>Dia dos treinos</th>
-                            <th>Horário</th>
-                            <th>Editar dados</th>
-                            <th>Atletas</th>
+                <div class="overflow">
+                    <table class="tabela"> 
+                        <thead> 
+                            <tr>
+                                <th>Modalidade</th>
+                                <th>Genero</th>
+                                <th>Dia dos treinos</th>
+                                <th>Horário</th>
+                                <th>Editar dados</th>
+                                <th>Atletas</th>
 
-                        </tr>
-                    </thead>
-                    <tbody> 
-                        <% modalidades.forEach(function(modalidade){ %>   
-                        <tr>                            
-                            <td><%= modalidade.nome %></td>
-                            <td><%= modalidade.genero %></td>
-                            <td><%= modalidade.dia_da_semana %></td>
-                            <td><%= modalidade.horario %></td>
-                            <td><input type="button" value="editar"></td>
-                            <td><input type="button" value="exibir"></td>
-                        </tr>
-                        <% }) %>
-                    </tbody>
-                </table>
+                            </tr>
+                        </thead>
+                        <tbody> 
+                            <% modalidades.forEach(function(modalidade){ %>   
+                            <tr>                            
+                                <td><%= modalidade.nome %></td>
+                                <td><%= modalidade.genero %></td>
+                                <td><%= modalidade.dia_da_semana %></td>
+                                <td><%= modalidade.horario %></td>
+                                <td><input class="botao__editar" type="button" value="editar"></td>
+                                <td><input class="botao__visualizar" type="button" value="exibir"></td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="eventos">
                 <p class="descricao">EVENTOS CADASTRADOS</p>
-                <table class="tabela"> 
-                    <thead> 
-                        <tr>
-                            <th>Evento</th>
-                            <th>Descrição</th>
-                            <th>Data</th>
-                            <th>Horário de início</th>
-                            <th>Local</th>
-                            <th>Orcamento</th>
-                            <th>Editar dados</th>
-                            <th>Inscritos</th>
-
-                        </tr>
-                    </thead>
-                    <tbody> 
-                        <% eventos.forEach(function(evento){ %> 
+                <div class="overflow">
+                    <table class="tabela"> 
+                        <thead> 
                             <tr>
-                                <td><%= evento.nome %></td>
-                                <td><%= evento.descricao %></td>
-                                <td><%= evento.data_realizacao.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %></td>
-                                <td><%= evento.horario_inicio %></td>
-                                <td><%= evento.localidade %></td>
-                                <td><%= evento.orcamento %></td>
-                                <td><input type="button" value="editar"></td>
-                                <td><input type="button" value="exibir"></td>
+                                <th>Evento</th>
+                                <th>Descrição</th>
+                                <th>Data</th>
+                                <th>Horário de início</th>
+                                <th>Local</th>
+                                <th>Orcamento</th>
+                                <th>Editar dados</th>
+                                <th>Inscritos</th>
                             </tr>
-                        <% }) %>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody> 
+                            <% eventos.forEach(function(evento){ %> 
+                                <tr>
+                                    <td><%= evento.nome %></td>
+                                    <td><%= evento.descricao %></td>
+                                    <td><%= evento.data_realizacao.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %></td>
+                                    <td><%= evento.horario_inicio %></td>
+                                    <td><%= evento.localidade %></td>
+                                    <td><%= evento.orcamento %></td>
+                                    <td><input class="botao__editar" type="button" value="editar"></td>
+                                    <td><input class="botao__visualizar" type="button" value="exibir"></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-            <div class="eventos">
+            <div class="cursos">
                 <p class="descricao">CURSOS CADASTRADOS</p>
-                <table class="tabela"> 
-                    <thead> 
-                        <tr>
-                            <th>Curso</th>
-                            <th>Semestres</th>
-                            <th>Turno</th>
-                            <th>Editar dados</th>
-                        </tr>
-                    </thead>
-                    <tbody> 
-                        <% cursos.forEach(function(curso){ %> 
+                <div class="overflow">
+                    <table class="tabela"> 
+                        <thead> 
                             <tr>
-                                <td><%= curso.nome %></td>
-                                <td><%= curso.semestres %></td>
-                                <td><%= curso.turno %></td>
-                                <td><input type="button" value="editar"></td>
+                                <th>Curso</th>
+                                <th>Semestres</th>
+                                <th>Turno</th>
+                                <th>Editar dados</th>
                             </tr>
-                        <% }) %>
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody> 
+                            <% cursos.forEach(function(curso){ %> 
+                                <tr>
+                                    <td><%= curso.nome %></td>
+                                    <td><%= curso.semestres %></td>
+                                    <td><%= curso.turno %></td>
+                                    <td><input class="botao__editar" type="button" value="editar"></td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>    
             </div>
-
-            
         </section>
     </div>    
 

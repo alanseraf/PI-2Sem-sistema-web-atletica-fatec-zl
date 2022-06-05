@@ -169,3 +169,5 @@ insert into membro (cpf, nome, email, senha, perfil, telefone, data_nascimento, 
 INSERT INTO membro_modalidade_teste(id, aluno, nome, genero, tipo, dia_da_semana, horario, equipamento) VALUES (1,"","","","","","","");
 
 INSERT INTO membro_evento_teste(id, nome, cpf, data_realizacao, horario, localidade) VALUES (1,"","","2022-01-01","","");
+INSERT INTO membro_evento_teste(id, nome, cpf, data_realizacao, horario, localidade, id_membro) VALUES (2,"","","2022-01-01","","",1);
+INSERT INTO membro_evento_teste(id, nome, cpf, data_realizacao, horario, localidade, id_membro) VALUES (3,"","","2022-01-01","","",2);

@@ -1,0 +1,84 @@
+
+.tabela td, .tabela th{
+    border: 1px solid black;
+    padding: 0 5px 0 5px;
+    min-width: 11vw;
+}
+
+
+.tabela th{
+    background-color: var(--vermelho-atletica);
+    color: #fefefe;
+}
+
+.tabela td{
+    background-color: #fefefe;
+}
+
+.relatorios{
+    background-color: #fefefe;
+    width: 82vw;
+    margin: 1em;
+}
+
+.overflow{
+    overflow: scroll;
+    height: 30vh;
+    background-color: rgb(214, 146, 146);
+    padding: 1em 0 1em 0
+
+}
+
+
+.modalidades{
+    margin-top: 2em;
+}
+
+.modalidades th, .modalidades td {
+    min-width: 16vw;
+}
+
+.eventos{
+    margin-top: 2em;
+}
+
+.eventos th, .eventos td {
+    min-width: 25vw;
+}
+
+.cursos {
+    margin-top: 2em;
+}
+
+.cursos th, .cursos td {
+    min-width: 18vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+.membros {
+
+}
+.botao__editar, .botao__visualizar{
+
+}
+
+.botao__editar{
+     
+}
+
+.botao__visualizar{
+
+}
+
+*/

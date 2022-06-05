@@ -1,0 +1,39 @@
+.barra{
+    background-color: var(--vermelho-atletica);
+    color: var(--titulo-h2);
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.9;
+    align-items: center;
+    height: 8vh;
+    padding-left: 1vw;
+    padding-right: 3vw;
+}
+
+.barra__icone{
+    width: 3vw;
+    padding-right: 1em;
+    filter: invert(100%) saturate(100%) brightness(100%) contrast(60%);
+}
+
+.barra__icone:hover{
+   transform: scale(1.2);
+}
+
+.barra__descricao{
+    display: flex;
+    align-items: center;
+}
+
+.descricao__logo{
+    width: 3vw;
+}
+
+.descricao__texto{
+    font-size: 1em;
+    margin-left: .5em;
+}
+
+.usuario__nome{
+    margin: unset;
+}

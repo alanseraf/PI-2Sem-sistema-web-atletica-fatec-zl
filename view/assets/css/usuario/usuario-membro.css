@@ -1,0 +1,57 @@
+
+.info{
+    background-color: #fefefe;
+    width: 82vw;
+}
+
+.dados {
+    border: 1px solid black;
+    margin: 1em;
+}
+
+
+.modalidades{
+    border: 1px solid black;
+    margin: 1em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.eventos{
+    border: 1px solid black;
+    margin: 1em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.tabela{
+    width: 100%;
+}
+
+.dados th, .dados td{
+    text-align: left;
+}
+
+.dados .tabela {
+    width: unset;
+}
+.dados th {
+    width: 30vw;
+}
+.dados td {
+    width: 67vw
+}
+
+.tabela td, .tabela th{
+    border: 1px solid black;
+    padding: .8em;
+}
+
+.tabela th{
+    background-color: var(--vermelho-atletica);
+    color: #fefefe;
+    width: fit-content;
+}
