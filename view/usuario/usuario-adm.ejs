@@ -78,9 +78,9 @@
                                     <td><%= membros[i].email %></td>
                                     <td><%= membros[i].telefone %></td>
                                     <td><%= membros[i].data_nascimento.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %></td>  
-                                    <td>CURSO</td>
-                                    <td>TURNO</td>  
-                                    <td>TURMA</td>                                                        
+                                    <td><%= membros[i].nome_curso %></td>
+                                    <td><%= membros[i].turno %></td>  
+                                    <td><%= membros[i].turma %></td>                                                        
                                     <td><input class="botao__editar" type="button" value="editar"></td>
                                 </tr>
                             <% } %>

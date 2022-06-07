@@ -12,8 +12,8 @@ create table campus (
 
 
 create table curso (
-	id int auto_increment primary key,
-	nome varchar(255) not null,
+	id_curso int auto_increment primary key,
+	nome_curso varchar(255) not null,
 	semestres varchar(255) not null,
 	turno varchar(255) not null
 );
@@ -47,7 +47,7 @@ create table membro(
     data_nascimento date not null,
     curso int,
     turma varchar(250),
-    foreign key (curso) references curso(id)
+    foreign key (curso) references curso(id_curso)
 );
 
 create table membro_modalidade(
@@ -137,17 +137,17 @@ create table membro_evento_teste(
 
 ##Inserindo cursos oferecidos pela fatec
 
-insert into curso (nome, semestres, turno) values ("Análise e Desenvolvimento de Sistemas", "6", "tarde");
-insert into curso (nome, semestres, turno) values ("Análise e Desenvolvimento de Sistemas", "6", "noite");
-insert into curso (nome, semestres, turno) values ("Comércio Exterior", "6", "manhã");
-insert into curso (nome, semestres, turno) values ("Comércio Exterior", "6", "tarde");
-insert into curso (nome, semestres, turno) values ("Desenvolvimento de Produtos Plásticos", "6", "noite");
-insert into curso (nome, semestres, turno) values ("Desenvolvimento de Software Multiplataforma", "6", "manhã");
-insert into curso (nome, semestres, turno) values ("Gestão de Recursos Humanos", "6", "manhã");
-insert into curso (nome, semestres, turno) values ("Gestão Empresarial", "6", "manhã");
-insert into curso (nome, semestres, turno) values ("Logística", "6", "manhã");
-insert into curso (nome, semestres, turno) values ("Logística", "6", "noite");
-insert into curso (nome, semestres, turno) values ("Polímeros", "6", "noite");
+insert into curso (nome_curso, semestres, turno) values ("Análise e Desenvolvimento de Sistemas", "6", "tarde");
+insert into curso (nome_curso, semestres, turno) values ("Análise e Desenvolvimento de Sistemas", "6", "noite");
+insert into curso (nome_curso, semestres, turno) values ("Comércio Exterior", "6", "manhã");
+insert into curso (nome_curso, semestres, turno) values ("Comércio Exterior", "6", "tarde");
+insert into curso (nome_curso, semestres, turno) values ("Desenvolvimento de Produtos Plásticos", "6", "noite");
+insert into curso (nome_curso, semestres, turno) values ("Desenvolvimento de Software Multiplataforma", "6", "manhã");
+insert into curso (nome_curso, semestres, turno) values ("Gestão de Recursos Humanos", "6", "manhã");
+insert into curso (nome_curso, semestres, turno) values ("Gestão Empresarial", "6", "manhã");
+insert into curso (nome_curso, semestres, turno) values ("Logística", "6", "manhã");
+insert into curso (nome_curso, semestres, turno) values ("Logística", "6", "noite");
+insert into curso (nome_curso, semestres, turno) values ("Polímeros", "6", "noite");
 
 ##Inserindo modalidades 
 
@@ -165,9 +165,22 @@ insert into eventos (nome, data_realizacao, horario_inicio, localidade, orcament
 
 insert into membro (cpf, nome, email, senha, perfil, telefone, data_nascimento, curso, turma) values ("999.999.999-99", "admin", "admin@admin.com", "8cb2237d0679ca88db6464eac60da96345513964", "adm", "99999-9999", "2020-05-28", 1, "2022");
 insert into membro (cpf, nome, email, senha, perfil, telefone, data_nascimento, curso, turma) values ("999.999.999-99", "aluno", "aluno@aluno.com", "8cb2237d0679ca88db6464eac60da96345513964", "membro", "99999-9999", "2020-05-28", 1, "2022");
+insert into membro (cpf, nome, email, senha, perfil, telefone, data_nascimento, curso, turma) values ("999.999.999-99", "Alan", "aluno@aluno.com", "8cb2237d0679ca88db6464eac60da96345513964", "membro", "99999-9999", "2020-05-28", 5, "2022");
 
 INSERT INTO membro_modalidade_teste(id, aluno, nome, genero, tipo, dia_da_semana, horario, equipamento) VALUES (1,"","","","","","","");
 
 INSERT INTO membro_evento_teste(id, nome, cpf, data_realizacao, horario, localidade) VALUES (1,"","","2022-01-01","","");
 INSERT INTO membro_evento_teste(id, nome, cpf, data_realizacao, horario, localidade, id_membro) VALUES (2,"","","2022-01-01","","",1);
 INSERT INTO membro_evento_teste(id, nome, cpf, data_realizacao, horario, localidade, id_membro) VALUES (3,"","","2022-01-01","","",2);
+INSERT INTO membro_evento_teste(id, nome, cpf, data_realizacao, horario, localidade, id_membro) VALUES (4,"","","2022-01-01","","",2);
+INSERT INTO membro_evento_teste(id, nome, cpf, data_realizacao, horario, localidade, id_membro) VALUES (5,"","","2022-01-01","","",4);
+
+use projetoatletica;
+
+CREATE VIEW membro_curso as
+    select id, nome, cpf, email, perfil, telefone, data_nascimento, nome_curso , turno, turma
+    from membro, curso where curso.id_curso = membro.curso;
+
+
+select * from membro_curso;
+

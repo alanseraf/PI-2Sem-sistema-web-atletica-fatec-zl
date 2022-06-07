@@ -20,6 +20,17 @@ async function login(email, senha){
     else return null;
 }
 
+//Utilzando a view para buscar dados do usuario para diminiuir o código
+async function getDadosUsuario(id){
+    const conn = await usuarioDB.connect();
+    const sql = 'SELECT * FROM membro_curso where id=?;';
+    const values = [id];
+    const [rows] = await conn.query(sql, values);
+    if(rows.length > 0) return rows[0];
+    else return null;
+}
+
+//Descontinuada
 async function getCursoUsuarioId(id){
     const conn = await usuarioDB.connect();
     const sql = 'SELECT * FROM membro where id=?;';
@@ -29,6 +40,7 @@ async function getCursoUsuarioId(id){
     else return null;
 }
 
+//Descontinuada
 async function getCursoUsuario(id){
     const conn = await usuarioDB.connect();
     const sql = 'SELECT * FROM curso where id=?;';
@@ -47,6 +59,14 @@ async function getEventoUsuario(id){
     else return null;
 }
 
+
+
+//Utilzando a view para buscar dados do usuario para diminiuir o código
+async function getRelatorioMembrosCursos(){
+    const conn = await usuarioDB.connect();
+    const [rows] = await conn.query('SELECT * FROM membro_curso;');
+    return rows;
+}
 
 
 
@@ -75,5 +95,5 @@ async function getRelatorioModalidades(){
 }
 
 
-module.exports = {getUsuarioId, login, getCursoUsuarioId, getCursoUsuario, getRelatorioMembros, getRelatorioCursos, getRelatorioEventos, getRelatorioModalidades, getEventoUsuario};
+module.exports = {getUsuarioId, login, getCursoUsuarioId, getDadosUsuario, getRelatorioMembrosCursos, getCursoUsuario, getRelatorioMembros, getRelatorioCursos, getRelatorioEventos, getRelatorioModalidades, getEventoUsuario};
 

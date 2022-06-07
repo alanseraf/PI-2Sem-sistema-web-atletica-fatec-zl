@@ -75,11 +75,11 @@
                         </tr>
                         <tr>
                             <th>Curso: </th>
-                            <td><%= cursoDoUsuario.nome %></td>
+                            <td><%= usuarioLogado.nome_curso %></td>
                         </tr>
                         <tr>
                             <th>Turno: </th>
-                            <td> <%= cursoDoUsuario.turno %></td>
+                            <td> <%= usuarioLogado.turno %></td>
                         </tr>
                         <tr>
                             <th>Turma: </th>
@@ -122,7 +122,7 @@
                         </tr>
                     </thead>
                     <tbody> 
-                        <% eventosDoUsuario.forEach(function(eventoUsuario){ %> 
+                        <%  if(eventosDoUsuario != null) eventosDoUsuario.forEach(function(eventoUsuario){ %> 
                             <tr>
                                 <td><%= eventoUsuario.nome %></td>
                                 <td><%= eventoUsuario.data_realizacao.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %></td>

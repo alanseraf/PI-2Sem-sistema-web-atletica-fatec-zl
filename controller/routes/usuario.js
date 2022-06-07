@@ -8,15 +8,13 @@ module.exports = function (app){
         try {
                 if (req.user.perfil != "adm") {
                     const usuarioID = req.user.id;
-                    const usuarioLogado = await usuarioBanco.getUsuarioId(usuarioID);
-                    const cursoDoUsuarioId = await usuarioBanco.getCursoUsuarioId(usuarioID);
-                    const cursoDoUsuario = await usuarioBanco.getCursoUsuario(cursoDoUsuarioId.curso);
-                    const eventosDoUsuario = await usuarioBanco.getEventoUsuario(usuarioID)
-                    res.render('usuario/usuario', {usuarioLogado, cursoDoUsuario, eventosDoUsuario});
+                    const usuarioLogado = await usuarioBanco.getDadosUsuario(usuarioID);
+                    const eventosDoUsuario = await usuarioBanco.getEventoUsuario(usuarioID);
+                    res.render('usuario/usuario', {usuarioLogado, eventosDoUsuario});
                 } else {
                     const usuarioID = req.user.id;
                     const usuarioLogado = await usuarioBanco.getUsuarioId(usuarioID);
-                    const membros = await usuarioBanco.getRelatorioMembros();
+                    const membros = await usuarioBanco.getRelatorioMembrosCursos();
                     const cursos = await usuarioBanco.getRelatorioCursos();
                     const eventos = await usuarioBanco.getRelatorioEventos();
                     const modalidades = await usuarioBanco.getRelatorioModalidades();
