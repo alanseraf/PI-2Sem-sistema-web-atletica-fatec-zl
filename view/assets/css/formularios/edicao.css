@@ -1,0 +1,29 @@
+.edicao{
+    padding: 1em 0 0 3em;
+
+}
+
+.edicao___form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+
+}
+
+.form__campos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.form__campos label{
+    padding-top: .5em;
+   
+}
+
+.form__campos input{
+    width: 25vw;
+   
+}

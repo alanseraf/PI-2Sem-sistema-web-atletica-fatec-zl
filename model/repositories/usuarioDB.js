@@ -69,7 +69,7 @@ async function getRelatorioMembrosCursos(){
 }
 
 
-
+//Descontinuada
 async function getRelatorioMembros(){
     const conn = await usuarioDB.connect();
     const [rows] = await conn.query('SELECT * FROM membro;');
@@ -95,5 +95,12 @@ async function getRelatorioModalidades(){
 }
 
 
-module.exports = {getUsuarioId, login, getCursoUsuarioId, getDadosUsuario, getRelatorioMembrosCursos, getCursoUsuario, getRelatorioMembros, getRelatorioCursos, getRelatorioEventos, getRelatorioModalidades, getEventoUsuario};
+async function updateUsuario(usuario){
+    const conn = await usuarioDB.connect();
+    const sql = 'UPDATE membro SET cpf=?, nome=?, email=?, telefone=?, data_nascimento=?, turma=? where id=?';
+    const values = [usuario.cpf, usuario.nome, usuario.email, usuario.telefone, usuario.data, usuario.turma, usuario.id];
+    return await conn.query(sql, values);
+}
+
+module.exports = {getUsuarioId, login, getCursoUsuarioId, getDadosUsuario, getRelatorioMembrosCursos, getCursoUsuario, getRelatorioMembros, getRelatorioCursos, getRelatorioEventos, getRelatorioModalidades, getEventoUsuario, updateUsuario};
 
