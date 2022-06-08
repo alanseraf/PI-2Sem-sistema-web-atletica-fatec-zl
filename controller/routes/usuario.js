@@ -38,6 +38,7 @@ module.exports = function (app){
 
     app.post('/edicao-salvar', async(req, res) => {
         try {
+            //var dataFormatada = `${ano}-${mes}-${dia}`
             var usuario = {
                            id: req.body.id,
                            email: req.body.email,
@@ -45,7 +46,7 @@ module.exports = function (app){
                            nome: req.body.nome,
                            data : req.body.data,
                            telefone: req.body.telefone,
-                           curso: req.body.cursoUsuario,
+                           curso: req.body.curso,
                            turma: req.body.turma         
                         }
                         console.log(usuario);
@@ -54,6 +55,7 @@ module.exports = function (app){
             //corrigir erro do css
         } catch (error){
             res.render('forms/sucesso-edicao', { mensagem: "Alteração não realizada, tente novamente mais tarde"})
+            console.log(error);
         }
     });
 

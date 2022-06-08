@@ -62,9 +62,10 @@
                     <label for="nome">Nome</label>
                     <input type="text" name="nome"  value=' <%= membro.nome %> '>
                     <label for="data">Data de Nascimento</label>
-                    <input type="text" name="data" value=" <%= membro.data_nascimento.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %> " disabled>
+                    <input type="date" name="data" value=" <%= membro.data_nascimento.toLocaleDateString('pt-BR', {timeZone: 'UTC'}) %> ">
                     <label for="curso">Curso:</label>
                     <input type="text" name="cursoUsuario" value=' <%= membro.nome_curso %> ' disabled>
+                    <input name="curso" type="hidden" value=<%= membro.id_curso %> > 
                     <label for="turma">Turma:</label>
                     <input type="text" name="turma" value=<%=membro.turma %> >
                     <label for="telefone">Celular</label>

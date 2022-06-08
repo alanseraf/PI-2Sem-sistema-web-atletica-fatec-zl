@@ -178,7 +178,7 @@ INSERT INTO membro_evento_teste(id, nome, cpf, data_realizacao, horario, localid
 use projetoatletica;
 
 CREATE VIEW membro_curso as
-    select id, nome, cpf, email, perfil, telefone, data_nascimento, nome_curso , turno, turma
+    select id, nome, cpf, email, perfil, telefone, data_nascimento, id_curso, nome_curso , turno, turma
     from membro, curso where curso.id_curso = membro.curso;
 
 
