@@ -30,5 +30,15 @@ module.exports = function (app){
 
     app.get('/eventos--salvar', function (req, res){
         res.render('forms/sucesso-evento', {mensagem: 'comprado'});
-    })
+    });
+
+    app.get('/teste:id', seguranca.autenticar, async (req, res, next) => {
+        try{
+            var id = req.params.id;
+            const evento = await usuarioBanco.findEventoById(id);
+            res.render('forms/form6-edicaoEvento', { evento });
+        } catch (err){
+            next(err);
+        }
+    });
 }

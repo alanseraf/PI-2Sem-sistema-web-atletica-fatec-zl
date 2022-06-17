@@ -145,7 +145,7 @@
                                     <td><%= evento.horario_inicio %></td>
                                     <td><%= evento.localidade %></td>
                                     <td><%= evento.orcamento %></td>
-                                    <td><input class="botao__editar" type="button" value="editar"></td>
+                                    <td><input class="botao__editar" type="button" value="editar" onclick="location.href='/teste<%= evento.id_evento %>'" ></td>
                                     <td><input class="botao__visualizar" type="button" value="exibir"></td>
                                 </tr>
                             <% }) %>

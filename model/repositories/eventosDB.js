@@ -16,7 +16,7 @@ async function getEventos(){
 
 async function findEventoById(id){
     const conn = await usuarioDB.connect();
-    const sql = 'SELECT * FROM evento where id=?;';
+    const sql = 'SELECT * FROM eventos where id_evento=?;';
     const values = [id];
     const [rows] = await conn.query(sql, values);
     if(rows.length > 0) return rows[0];
