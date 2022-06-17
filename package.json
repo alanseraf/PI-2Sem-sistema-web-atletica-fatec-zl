@@ -1,4 +1,11 @@
 {
+  "name": "sistema-web-atletica-fatec-zl",
+  "version": "0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
   "dependencies": {
     "body-parser": "^1.20.0",
     "consign": "^0.1.6",

@@ -2,17 +2,17 @@ const express = require("express");
 
 const app = express();
 
+const port = process.env.PORT || 8081;
+
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs')
-//npm install ejs
+
 var path = require('path');
 app.set('views', path.join(__dirname, '/view/'));
 
-//npm instal body-parser
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }))
 
-//npm i passport express-session
 const passport = require('passport');
 const session = require('express-session');
 require('./model/components/autenticacao')(passport);
@@ -27,41 +27,21 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Validação de login do usuário -> a URL listada abaixo está como atributo do form da página Login.ejs
 app.post('/login/executar', passport.authenticate('local', {
     successRedirect: '/usuario',
     failureRedirect: '/login?fail=true'
 }));
 
-
-/*
-
-app.post('/login/executar', passport.authenticate('local', {
-    failureRedirect: '/login?fail=true' }),
-    function (req, res) {
-        const usuarioLogado = await usuarioBanco.getUsuarioId(usuario.id);
-        req.user.id;
-        res.redirect('/usuario:id')
-    }
-    
-});
-*/
-
-
-//npm install consign
 var consign = require('consign');
 consign().include('controller/routes',).into(app);
 
-//Carregamento de arquivos estáticos
 app.use(express.static('view'));
 
-//redirecionamento
 app.use(function(req, res, next){
     res.status(404).redirect('/not-found')
 });
 
-// esta  deve ser a última linha quando usamos express
-app.listen(8081, function(){
+app.listen(port, function(){
     console.log("Servidor funcionando na url http://localhost:8081");
 });
 
