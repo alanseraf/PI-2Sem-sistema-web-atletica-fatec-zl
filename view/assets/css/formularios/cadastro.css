@@ -1,16 +1,19 @@
 .container{
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    width: 70%;
+    width: 100%;
 }
+
 
 .cadastro{
     background-color: #630101;
     color: white;
-    margin: 2% 2% 2% 45%;
+    margin: 2% 2% 2%;
     padding: 2%;
     border-radius: 14px;
+    width: 50%;
 }
 
 .cadastro__form{
@@ -29,40 +32,197 @@
     text-align: left;
     display: flex;
     flex-direction: column;
-    width: 100%;
-    justify-content: space-around;
+    width: 80%;
 }
 
 .botao__cadastrar{
+    background: none;
+    border: none;
     width: 120px;
     height: 3rem;
     border-radius: 12px;
-    border: 3px grey solid;
+    box-shadow: 0 0 40px 40px white inset, 0 0 0 0 white;
+    transition: all .25s ease-in-out;
+    margin-left: 77%;
 }
 
 .botao__cadastrar:hover{
-    border-color: yellow;
+    border: 3px solid white;
+    color: white;
+    box-shadow: none;
     cursor: pointer;
 }
 
-.form__campos label{
-    padding-top: 1rem;
-    padding-left: 0.3rem;
-    text-align: left;
+.botao__cadastrar:active{
+    background-color: white;
+    color: #000;
+   
 }
 
-.form__campos  input{
-    border-radius: 12px;
-    height: 2em;
+.form__login, .form__dados{
+    display: flex;
+    flex-direction: column;
 }
 
+.form__dados{
+    margin-top: 2em;
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 1em;
+}
+
+/* input */
+
+.input{
+    border: none;
+    appearance: none;
+    border-radius: 3px;
+    border-left: none;
+    height: 2.8em;
+    box-sizing: border-box;
+    padding: 1.375rem 0.5rem 0.5rem;
+    height: 3.25rem;
+    outline: none;
+}
+
+.input::placeholder {
+    visibility: hidden;
+    color: #000;
+}
+
+.input:focus {
+    outline: none;
+}
+
+/* Label */
+
+.input-label {
+    color: grey;
+    position: absolute;
+    top: 1em;
+    left: 0.5rem;
+    font-size: 1em;
+    transition: all .25s ease;
+}
+
+.input:not(:placeholder-shown) + .input-label, .input:focus + .input-label {
+  position: absolute;
+  font-size: .9em;
+  top: .2em;
+  color: #000;
+}
+
+/* Erro */
+
+.input-mensagem-erro {
+    display: none;
+}
+
+.input-container--invalido {
+    margin-bottom: 0.5rem;
+}
+
+.input-container--invalido .input {
+    border: 3px solid red;
+    border-radius: 7px;
+}
+
+.input-container--invalido .input-label {
+    color: red;
+}
+
+.input-mensagem-erro {
+    display: none;
+}
+
+.input-container--invalido .input-mensagem-erro {
+    color: red;
+    display: block;
+    margin-top: 0.5rem;
+    padding-left: 0.5rem;
+}
 
 
 /*
-.campo__label-email{}
-.campo__label-senha{}
-.login__form-link{}
-.login__form-botao{}
+.formulario {
+    margin-top: 2rem;
+}
+
+.formulario__legenda {
+    font-size: var(--fonte-tamanho-formulario-fieldset);
+    margin-bottom: 1rem;
+}
+
+.input-container {
+    font-weight: var(--fonte-peso-input);
+    position: relative;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    box-sizing: border-box;
+}
+
+.input {
+    box-sizing: border-box;
+    border-bottom: 1px solid var(--cor-secundaria);
+    padding: 1.375rem 0.5rem 0.5rem;
+    height: 3.25rem;
+    width: 100%;
+}
+3
+.input::placeholder {
+    visibility: hidden;
+    color: #00000000;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.input-label {
+    position: absolute;
+    top: 1.375rem;
+    left: 0.5rem;
+    font-size: var(--fonte-tamanho-input-label);
+
+    transition: all .25s;
+}
+
+.input:not(:placeholder-shown) + .input-label, .input:focus + .input-label {
+    font-size: 0.875rem;
+    top: 0.25rem;
+    transition: all .25s;
+}
+
+.input-container--invalido {
+    margin-bottom: 0.5rem;
+}
+
+.input-container--invalido .input {
+    border: 1px solid var(--cor-aviso);
+    border-radius: 7px;
+}
+
+.input-container--invalido .input-label {
+    color: var(--cor-aviso);
+}
+
+.input-mensagem-erro {
+    display: none;
+}
+
+.input-container--invalido .input-mensagem-erro {
+    color: var(--cor-aviso);
+    display: block;
+    margin-top: 0.5rem;
+    padding-left: 0.5rem;
+}
 
 }
 */

@@ -24,31 +24,68 @@
                     <form  class="cadastro__form" method="POST" action="cadastro-salvar" >
                         <h1 class="form__titulo">Cadastre-se</h1>
                         <div class="form__campos">
-                            <label for="email">E-mail</label>
-                            <input type="email" name="email"required placeholder="nome@site.com.br">
-                            <label for="cpf">CPF</label>
-                            <input type="number" name="cpf" required placeholder="999.999.999-99">
-                            <label for="nome">Nome</label>
-                            <input type="text" name="nome" required placeholder="Nome Completo">
-                            <label for="data">Data de Nascimento</label>
-                            <input type="date" name="data" required>
-                            <label for="curso">Curso:</label>
-                            <select name="curso">
-                                <% cursos.forEach(function(curso){ %>
-                                    <option value=" <%= curso.id_curso %> "> <%= curso.nome_curso %> - <%= curso.turno %> </option>    
-                                <% }) %>
-                            </select>
-                            <label for="turma">Turma:</label>
-                            <input type="text" name="turma">
-                            <label for="celular">Celular</label>
-                            <input type="tel" name="telefone" placeholder="(99) 99999-9999">
-                            <label for="senha" >Senha:</label>
-                            <input type="password" name="senha"  required>
-                            <label for="confirmacao" >Confirmação de Senha:</label>
-                            <input type="password" name="confirmacao"  required>                     
-                        </div>
-                        <div class="form__botoes"><br>
-                            <input class="botao__cadastrar" type="submit" value= "Cadastrar" >
+                            <fieldset class="form__login">
+                                <legend>Informações de Login</legend>
+                                <div class="input-container">
+                                    <input class="input" type="email" name="email" placeholder="Email" data-tipo="email" required>
+                                    <label class="input-label" for="email">Email</label>
+                                    <span class="input-mensagem-erro">Este campo não está válido</span>
+                                </div>
+                                <div class="input-container">
+                                    <input class="input" type="text" name="cpf" placeholder="CPF" data-tipo="cpf" required>
+                                    <label class="input-label" for="cpf">CPF</label>
+                                    <span class="input-mensagem-erro">Este campo não está válido</span>
+                                </div>
+                                <div class="input-container">
+                                    <input class="input" type="password" name="senha" placeholder="Senha" data-tipo="senha" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,12}$" required>
+                                    <label class="input-label" for="senha" >Senha</label>
+                                    <span class="input-mensagem-erro">Este campo não está válido</span>
+                                </div>
+                                <div class="input-container">
+                                    <input class="input" type="password" name="confirmacao" placeholder="Confirmação de Senha" data-tipo="confirmacao" required>  
+                                    <label class="input-label" for="confirmacao">Confirmação de Senha</label>
+                                    <span class="input-mensagem-erro">Este campo não está válido</span>
+                                </div>
+                                <div class="form__botoes"><br>
+                                    <input class="botao__cadastrar" type="submit" value= "Avançar" >
+                                </div> 
+                            </fieldset>
+                            <fieldset class="form__dados">
+                                <legend>Dados pessoais</legend>
+                                <div class="input-container">
+                                    <input class="input" type="text" name="nome" placeholder="Nome Completo" data-tipo="nome" required>
+                                    <label class="input-label" for="nome">Nome Completo</label>
+                                    <span class="input-mensagem-erro">Este campo não está válido</span>
+                                </div>
+                                <div class="input-container">
+                                    <input class="input" type="date" name="data" placeholder="Data de Nascimento" data-tipo="dataNascimento" required>
+                                    <label class="input-label" for="data">Data de Nascimento</label>
+                                    <span class="input-mensagem-erro">Este campo não está válido</span>
+                                </div>
+                                <div class="input-container">
+                                    <select class="input" name="curso" data-tipo="curso" required>
+                                        <option value="" selected disabled>Selecione</option>
+                                        <% if(cursos != null) { cursos.forEach(function(curso){ %>
+                                            <option value=" <%= curso.id_curso %> "> <%= curso.nome_curso %> - <%= curso.turno %> </option>    
+                                            <% })} %>
+                                        </select>
+                                    <label class="input-label" for="curso">Curso</label>
+                                    <span class="input-mensagem-erro">Este campo não está válido</span>
+                                </div>
+                                <div class="input-container">
+                                    <input class="input" type="text" name="turma" placeholder="Turma" data-tipo="turma">
+                                    <label class="input-label" for="turma">Turma</label>
+                                    <span class="input-mensagem-erro">Este campo não está válido</span>
+                                </div>
+                                <div class="input-container">
+                                    <input class="input" type="tel" name="telefone" placeholder="Telefone" data-tipo="telefone" required>
+                                    <label class="input-label" for="Telefone">Telefone</label>
+                                    <span class="input-mensagem-erro">Este campo não está válido</span>
+                                </div>
+                                <div class="form__botoes"><br>
+                                    <input class="botao__cadastrar" type="submit" value= "Cadastrar" >
+                                </div>
+                            </fieldset>
                         </div>
                     </form>
                 </section>
@@ -58,5 +95,6 @@
         <%- include('../partials/footer'); %>
        <!--JS: Scripts (body)-->
        <%- include('../partials/body-js'); %>
+       <script src="assets\JS\main.js" type="module"></script>
     </body>
 </html>
