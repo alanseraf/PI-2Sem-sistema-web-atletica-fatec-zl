@@ -1,7 +1,7 @@
 # Sistema web da Atlética da Fatec Zona Leste
 
 ## Descrição do Projeto
-Projeto interdisciplinar do curso de Desenvolvimento de Software Multiplataforma da Fatec Zona leste, compreendendo uma aplicação de um sistema web para gestão da Atlética da Fatec Zona Leste.
+Projeto interdisciplinar do 2º semestre do curso de Desenvolvimento de Software Multiplataforma da Fatec Zona leste, compreendendo uma aplicação de um sistema web para gestão da Atlética da Fatec Zona Leste.
 
 O projeto do sistema web Atlética Fatec Zona Leste proporcionará aos membros da atlética uma nova visão de gestão, será possível ver a quantidade e perfil de quem acessa o web site da Atlética Fatec Zona Leste e poderão ter as atualizações dos calendários esportivos e modalidades que estão em andamento, favorecendo a divulgação da atlética e suas atividades. Desta forma possibilita maior apoio das torcidas, incentivos financeiros e de patrocínios, os quais terão um espaço para divulgação no sistema web. 
 
